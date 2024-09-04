@@ -1,0 +1,17 @@
+spring:
+# Datasource configuration for mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/product_db
+    username: root
+    password: akshay
+
+# jpa configuration
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database: MYSQL
+
+# Server configuration
+server:
+  port: 8083

@@ -1,0 +1,41 @@
+spring:
+  # datasource configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/orders
+    username: root
+    password: akshay
+
+  # jpa configurationr
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create
+    database: mysql
+
+  # kafka configuration
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: orderConfirmation:com.akshay.order.model.OrderConfirmation
+
+# port configuration
+server:
+  port: 8084
+
+application:
+  config:
+    customer-url: http://localhost:8082/api/customers
+    product-url: http://localhost:8083/api/products
+    payment-url: http://localhost:8085/api/payments
+
+#logging:
+#  level:
+#    root: debug
+#    org.springframework.web: debug
+#    com.akshay.order: debug
