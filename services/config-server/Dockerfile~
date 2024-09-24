@@ -1,0 +1,8 @@
+FROM openjdk:17
+LABEL authors="Akshay"
+
+WORKDIR "C:\Spring Projects\E-CommerceApp\services\config-server"
+COPY ["target/config-server.jar", "config-server.jar"]
+EXPOSE 8888
+
+ENTRYPOINT ["java", "-jar", "config-server.jar"]

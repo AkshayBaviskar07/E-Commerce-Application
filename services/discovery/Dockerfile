@@ -1,0 +1,10 @@
+FROM openjdk:17
+LABEL authors="Akshay"
+
+WORKDIR /app
+
+COPY ["target/discovery.jar", "discovery.jar"]
+
+EXPOSE 8761
+
+ENTRYPOINT ["java", "-jar", "discovery.jar"]
